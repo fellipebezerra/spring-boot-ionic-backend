@@ -11,7 +11,7 @@ import com.felipebezerra.cursomc.domain.Cliente;
 import com.felipebezerra.cursomc.servicies.validation.ClienteUpdate;
 
 @ClienteUpdate
-public class ClienteDTO implements Serializable{
+public class ClienteDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
