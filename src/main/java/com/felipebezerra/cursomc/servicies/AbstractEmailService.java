@@ -15,6 +15,7 @@ import org.thymeleaf.context.Context;
 
 import com.felipebezerra.cursomc.domain.Pedido;
 
+
 public abstract class AbstractEmailService implements EmailService {
 	
 	@Value("${default.sender}")
@@ -23,7 +24,7 @@ public abstract class AbstractEmailService implements EmailService {
 	@Autowired
 	private TemplateEngine templateEngine;
 	
-	@Autowired
+	//@Autowired
 	private JavaMailSender javaMailSender;
 	
 	@Override
@@ -33,47 +34,40 @@ public abstract class AbstractEmailService implements EmailService {
 	}
 
 	protected SimpleMailMessage prepareSimpleMailMessageFromPedido(Pedido obj) {
-		
 		SimpleMailMessage sm = new SimpleMailMessage();
 		sm.setTo(obj.getCliente().getEmail());
 		sm.setFrom(sender);
 		sm.setSubject("Pedido confirmado! Código: " + obj.getId());
 		sm.setSentDate(new Date(System.currentTimeMillis()));
-		sm.setText(obj.toString());		
+		sm.setText(obj.toString());
 		return sm;
 	}
 	
 	protected String htmlFromTemplatePedido(Pedido obj) {
-		
 		Context context = new Context();
 		context.setVariable("pedido", obj);
 		return templateEngine.process("email/confirmacaoPedido", context);
-				
 	}
 	
 	@Override
 	public void sendOrderConfirmationHtmlEmail(Pedido obj) {
-		MimeMessage mm;
 		try {
-			mm = prepareMimeMessageFromPedido(obj);
+			MimeMessage mm = prepareMimeMessageFromPedido(obj);
 			sendHtmlEmail(mm);
-		} catch (MessagingException e) {
+		}
+		catch (MessagingException e) {
 			sendOrderConfirmationEmail(obj);
 		}
-		
 	}
 
 	protected MimeMessage prepareMimeMessageFromPedido(Pedido obj) throws MessagingException {
-		
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 		MimeMessageHelper mmh = new MimeMessageHelper(mimeMessage, true);
 		mmh.setTo(obj.getCliente().getEmail());
 		mmh.setFrom(sender);
 		mmh.setSubject("Pedido confirmado! Código: " + obj.getId());
 		mmh.setSentDate(new Date(System.currentTimeMillis()));
-		mmh.setText(htmlFromTemplatePedido(obj),true);		
-		
+		mmh.setText(htmlFromTemplatePedido(obj), true);
 		return mimeMessage;
 	}
-	
 }
