@@ -19,21 +19,22 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.felipebezerra.cursomc.dto.CredenciaisDTO;
 
-public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
+public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 	private AuthenticationManager authenticationManager;
-	
-	private JWTUtil jwtUtil;
-	
-	 public JWTAuthenticationFilter(AuthenticationManager authenticationManager, JWTUtil jwtUtil) {
-	    	setAuthenticationFailureHandler(new JWTAuthenticationFailureHandler());
-	        this.authenticationManager = authenticationManager;
-	        this.jwtUtil = jwtUtil;
-	    }
+    
+    private JWTUtil jwtUtil;
+
+    public JWTAuthenticationFilter(AuthenticationManager authenticationManager, JWTUtil jwtUtil) {
+    	setAuthenticationFailureHandler(new JWTAuthenticationFailureHandler());
+        this.authenticationManager = authenticationManager;
+        this.jwtUtil = jwtUtil;
+    }
 	
 	@Override
-	public Authentication attemptAuthentication (HttpServletRequest req,
-												 HttpServletResponse res) throws AuthenticationException {
+    public Authentication attemptAuthentication(HttpServletRequest req,
+                                                HttpServletResponse res) throws AuthenticationException {
+
 		try {
 			CredenciaisDTO creds = new ObjectMapper()
 	                .readValue(req.getInputStream(), CredenciaisDTO.class);
@@ -49,14 +50,15 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	}
 	
 	@Override
-	protected void successfulAuthentication(HttpServletRequest req,
-									        HttpServletResponse res,
-										    FilterChain chain,
-										    Authentication auth) throws IOException, ServletException{
+    protected void successfulAuthentication(HttpServletRequest req,
+                                            HttpServletResponse res,
+                                            FilterChain chain,
+                                            Authentication auth) throws IOException, ServletException {
+	
 		String username = ((UserSS) auth.getPrincipal()).getUsername();
         String token = jwtUtil.generateToken(username);
         res.addHeader("Authorization", "Bearer " + token);
-		
+        res.addHeader("access-control-expose-headers", "Authorization");
 	}
 	
 	private class JWTAuthenticationFailureHandler implements AuthenticationFailureHandler {
