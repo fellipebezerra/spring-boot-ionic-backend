@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.felipebezerra.cursomc.servicies.DBService;
-import com.felipebezerra.cursomc.servicies.EmailService;
-import com.felipebezerra.cursomc.servicies.MockEmailService;
+import com.felipebezerra.cursomc.services.DBService;
+import com.felipebezerra.cursomc.services.EmailService;
+import com.felipebezerra.cursomc.services.MockEmailService;
 
 @Configuration
 @Profile("test")

@@ -14,8 +14,8 @@ import com.felipebezerra.cursomc.domain.Cidade;
 import com.felipebezerra.cursomc.domain.Estado;
 import com.felipebezerra.cursomc.dto.CidadeDTO;
 import com.felipebezerra.cursomc.dto.EstadoDTO;
-import com.felipebezerra.cursomc.servicies.CidadeService;
-import com.felipebezerra.cursomc.servicies.EstadoService;
+import com.felipebezerra.cursomc.services.CidadeService;
+import com.felipebezerra.cursomc.services.EstadoService;
 
 @RestController
 @RequestMapping(value = "/estados")

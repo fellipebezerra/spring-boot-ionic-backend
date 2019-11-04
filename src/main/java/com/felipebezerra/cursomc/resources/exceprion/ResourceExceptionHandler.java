@@ -13,9 +13,9 @@ import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.felipebezerra.cursomc.exceptions.ObjectNotFoundException;
-import com.felipebezerra.cursomc.servicies.exceptions.AuthorizationException;
-import com.felipebezerra.cursomc.servicies.exceptions.DataIntegrityException;
-import com.felipebezerra.cursomc.servicies.exceptions.FileException;
+import com.felipebezerra.cursomc.services.exceptions.AuthorizationException;
+import com.felipebezerra.cursomc.services.exceptions.DataIntegrityException;
+import com.felipebezerra.cursomc.services.exceptions.FileException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {

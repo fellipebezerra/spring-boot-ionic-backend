@@ -22,7 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.felipebezerra.cursomc.domain.Cliente;
 import com.felipebezerra.cursomc.dto.ClienteDTO;
 import com.felipebezerra.cursomc.dto.ClienteNewDTO;
-import com.felipebezerra.cursomc.servicies.ClienteService;
+import com.felipebezerra.cursomc.services.ClienteService;
 
 @RestController
 @RequestMapping(value="/clientes")

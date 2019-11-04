@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.felipebezerra.cursomc.domain.Produto;
 import com.felipebezerra.cursomc.dto.ProdutoDTO;
 import com.felipebezerra.cursomc.resources.utils.URL;
-import com.felipebezerra.cursomc.servicies.ProdutoService;
+import com.felipebezerra.cursomc.services.ProdutoService;
 
 @RestController
 @RequestMapping(value="/produtos")

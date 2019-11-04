@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.felipebezerra.cursomc.domain.Pedido;
-import com.felipebezerra.cursomc.servicies.PedidoService;
+import com.felipebezerra.cursomc.services.PedidoService;
 
 @RestController
 @RequestMapping(value="/pedidos")

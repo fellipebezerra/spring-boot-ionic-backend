@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.felipebezerra.cursomc.dto.EmailDTO;
 import com.felipebezerra.cursomc.security.JWTUtil;
 import com.felipebezerra.cursomc.security.UserSS;
-import com.felipebezerra.cursomc.servicies.AuthService;
-import com.felipebezerra.cursomc.servicies.UserService;
+import com.felipebezerra.cursomc.services.AuthService;
+import com.felipebezerra.cursomc.services.UserService;
 
 @RestController
 @RequestMapping(value = "/auth")
