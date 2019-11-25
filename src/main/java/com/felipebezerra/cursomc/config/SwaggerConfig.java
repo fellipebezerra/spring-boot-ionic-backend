@@ -67,12 +67,12 @@ public class SwaggerConfig {
 	private ApiInfo apiInfo() {
 		 return new ApiInfo(
 		 "API do curso Spring Boot",
-		 "Esta API é utilizada no curso de Spring Boot do prof. Nelio Alves",
+		 "Esta API é utilizada no modulo de Spring Boot de Felipe Bezerra",
 		 "Versão 1.0",
-		 "https://www.udemy.com/terms",
-		 new Contact("Nelio Alves", "udemy.com/user/nelio-alves", "nelio.cursos@gmail.com"),
+		 "https://www.linkedin.com/in/felipe-bezerra-8b029943/",
+		 new Contact("Felipe Bezerra", "https://www.linkedin.com/in/felipe-bezerra-8b029943/", "felipe.bezerra@live.com"),
 		 "Permitido uso para estudantes",
-		 "https://www.udemy.com/terms",
+		 "https://www.linkedin.com/in/felipe-bezerra-8b029943/",
 		 Collections.emptyList() // Vendor Extensions
 		);
 		}
